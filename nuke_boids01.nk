@@ -1,0 +1,144 @@
+set cut_paste_input [stack 0]
+version 6.3 v4
+push $cut_paste_input
+Multiply {
+ value {{"(1*(noise((frame+(timeOffset*100))*freq, (seed*5), 0)*2-1)*amp+(amp*.7))+amount" i}}
+ maskChannelMask -rgba.alpha
+ name NoiseCurveX
+ selected true
+ xpos -200
+ ypos -99
+ addUserKnob {20 parameters l Parameters}
+ addUserKnob {7 freq l Frequency}
+ freq 0.15
+ addUserKnob {7 seed l Seed t "\t\t\t\t\t\t" R 0 100}
+ seed 2.5
+ addUserKnob {7 amp l Amplitude}
+ amp 0.5
+ addUserKnob {7 timeOffset l "Time Offset" R 0 100}
+ timeOffset 23.6
+ addUserKnob {7 amount l Amount}
+ amount 0.75
+ addUserKnob {26 ""}
+ addUserKnob {41 channels_1 l channels T Noise.channels}
+ addUserKnob {41 value_1 l value T Noise.value}
+ addUserKnob {26 "" l mask T ""}
+ addUserKnob {41 maskChannelMask_1 l "" -STARTLINE T Noise.maskChannelMask}
+ addUserKnob {41 maskChannelInput_1 l "" -STARTLINE T Noise.maskChannelInput}
+ addUserKnob {41 inject_1 l inject -STARTLINE T Noise.inject}
+ addUserKnob {41 invert_mask_1 l invert -STARTLINE T Noise.invert_mask}
+ addUserKnob {41 fringe_1 l fringe -STARTLINE T Noise.fringe}
+ addUserKnob {41 unpremult_1 l "(un)premult by" T Noise.unpremult}
+ addUserKnob {41 invert_unpremult_1 l invert -STARTLINE T Noise.invert_unpremult}
+ addUserKnob {41 mix_1 l mix T Noise.mix}
+}
+Multiply {
+ inputs 0
+ value {{"(1*(noise((frame+(timeOffset*100))*freq, (seed*5), 0)*2-1)*amp+(amp*.7))+amount" i}}
+ maskChannelMask -rgba.alpha
+ name NoiseCurveY
+ selected true
+ xpos -94
+ ypos -92
+ addUserKnob {20 parameters l Parameters}
+ addUserKnob {7 freq l Frequency}
+ freq 0.15
+ addUserKnob {7 seed l Seed t "\t\t\t\t\t\t" R 0 100}
+ seed 2.5
+ addUserKnob {7 amp l Amplitude}
+ amp 0.5
+ addUserKnob {7 timeOffset l "Time Offset" R 0 100}
+ addUserKnob {7 amount l Amount}
+ amount 0.75
+ addUserKnob {26 ""}
+ addUserKnob {41 channels_1 l channels T Noise.channels}
+ addUserKnob {41 value_1 l value T Noise.value}
+ addUserKnob {26 "" l mask T ""}
+ addUserKnob {41 maskChannelMask_1 l "" -STARTLINE T Noise.maskChannelMask}
+ addUserKnob {41 maskChannelInput_1 l "" -STARTLINE T Noise.maskChannelInput}
+ addUserKnob {41 inject_1 l inject -STARTLINE T Noise.inject}
+ addUserKnob {41 invert_mask_1 l invert -STARTLINE T Noise.invert_mask}
+ addUserKnob {41 fringe_1 l fringe -STARTLINE T Noise.fringe}
+ addUserKnob {41 unpremult_1 l "(un)premult by" T Noise.unpremult}
+ addUserKnob {41 invert_unpremult_1 l invert -STARTLINE T Noise.invert_unpremult}
+ addUserKnob {41 mix_1 l mix T Noise.mix}
+}
+Multiply {
+ inputs 0
+ value {{"(1*(noise((frame+(timeOffset*100))*freq, (seed*5), 0)*2-1)*amp+(amp*.7))+amount" i}}
+ maskChannelMask -rgba.alpha
+ name NoiseCurveZ
+ selected true
+ xpos 3
+ ypos -92
+ addUserKnob {20 parameters l Parameters}
+ addUserKnob {7 freq l Frequency}
+ freq 0.15
+ addUserKnob {7 seed l Seed t "\t\t\t\t\t\t" R 0 100}
+ seed 2.5
+ addUserKnob {7 amp l Amplitude}
+ amp 0.5
+ addUserKnob {7 timeOffset l "Time Offset" R 0 100}
+ timeOffset 70
+ addUserKnob {7 amount l Amount}
+ amount 0.75
+ addUserKnob {26 ""}
+ addUserKnob {41 channels_1 l channels T Noise.channels}
+ addUserKnob {41 value_1 l value T Noise.value}
+ addUserKnob {26 "" l mask T ""}
+ addUserKnob {41 maskChannelMask_1 l "" -STARTLINE T Noise.maskChannelMask}
+ addUserKnob {41 maskChannelInput_1 l "" -STARTLINE T Noise.maskChannelInput}
+ addUserKnob {41 inject_1 l inject -STARTLINE T Noise.inject}
+ addUserKnob {41 invert_mask_1 l invert -STARTLINE T Noise.invert_mask}
+ addUserKnob {41 fringe_1 l fringe -STARTLINE T Noise.fringe}
+ addUserKnob {41 unpremult_1 l "(un)premult by" T Noise.unpremult}
+ addUserKnob {41 invert_unpremult_1 l invert -STARTLINE T Noise.invert_unpremult}
+ addUserKnob {41 mix_1 l mix T Noise.mix}
+}
+Group {
+ inputs 0
+ name boid
+ selected true
+ xpos -58
+ ypos -4
+ addUserKnob {20 User}
+ addUserKnob {3 frame_start}
+ frame_start 1
+ addUserKnob {3 frame_end -STARTLINE}
+ frame_end 100
+ addUserKnob {13 boid_init_pos l "Bois start position"}
+ boid_init_pos {10 20 30}
+ addUserKnob {13 boid_pos l "Boid position"}
+ boid_pos {{curve x1 10.61063099 11.23223114 11.84286213 12.41046238 12.90499401 13.31059361 13.63921833 13.94121838 14.25709343 14.60709381 14.99121857 15.38921833 15.76059341 16.08299255 16.44471169 16.92911148 17.5932312 18.45563126 19.48424911 20.5842495 21.705513 22.84871292 23.96997452 25.00517464 25.89423752 26.60543823 27.15398788 27.54878807 27.82696342 28.05196381 28.28926468 28.58206558 28.92699051 29.27139091 29.60186005 29.93425941 30.29862785 30.72702789 31.24139595 31.84139633 32.593853 33.57065201 34.74648285 36.03528214 37.32668686 38.52248764 39.56904221 40.42744064 41.08587265 41.56087112 41.88517761 42.09557724 42.22076035 42.24695969 42.12430191 41.88350296 41.6079216 41.39712143 41.33041382 41.43041229 41.61966324 41.80366135 41.92840958 41.98040771 41.98665619 42.01465607 42.17154312 42.55474472 43.18788147 44.03787994 45.03926849 46.11846924 47.21810532 48.29010391 49.23385239 49.98185349 50.50710297 50.82310486 50.9838562 51.08385468 51.21422958 51.42222977 51.73485565 52.15885544 52.68072891 53.26672745 53.87379456 54.56739426 55.39983749 56.37483597 57.45965576 58.59725571 59.71844864 60.76844788 61.74344635 62.64344788 63.46844864 64.21844482 64.89344788} {curve x1 20.72336197 21.27216148 21.66327477 21.95407486 22.21813774 22.52093697 22.90119362 23.41879272 24.10579872 24.9557991 25.93605614 26.99965668 28.09766388 29.18226433 30.18460846 31.03820801 31.69277763 32.12637711 32.35757065 32.45756912 32.52813339 32.6401329 32.83407211 33.12007141 33.47788239 33.856884 34.18224716 34.45304871 34.72666168 35.07666016 35.56852341 36.23532486 37.05343628 37.94503784 38.86144257 39.75304413 40.57630157 41.30590057 41.94690704 42.54690552 43.17272568 43.84832382 44.56526947 45.29486847 46.00033569 46.64893723 47.22937393 47.80737305 48.44368744 49.16868591 49.98237228 50.85437393 51.72393799 52.55053711 53.41225433 54.343853 55.3355484 56.34514999 57.31021881 58.16021729 58.85414124 59.41493988 59.89999008 60.37678909 60.89866257 61.48046112 62.08372498 62.71492386 63.35718536 63.95718384 64.44944763 64.78064728 64.93390656 64.9703064 65.03514862 65.24555206 65.67204285 66.32644653 67.14968872 67.99968719 68.7594986 69.40550232 69.92418671 70.31218719 70.57624817 70.73324585 70.81893921 70.96453857 71.26285553 71.737854 72.35679626 73.04239655 73.68496704 74.21296692 74.71921539 75.27121735 75.89596558 76.57996368 77.26921082} {curve x1 30.26436806 30.4427681 30.55713654 30.6395359 30.72000504 30.81440544 30.91802979 31.07003021 31.31090546 31.66090584 32.12002945 32.66802979 33.2644043 33.86440277 34.46440125 35.06439972 35.66439819 36.26439667 36.86439514 37.46439362 38.1205864 38.90418625 39.83375549 40.8873558 42.01469803 43.14929962 44.22085571 45.17925644 46.01268768 46.73768616 47.38699341 47.99739456 48.59757614 49.22277451 49.93996048 50.75115967 51.60979843 52.44499969 53.18588638 53.78588486 54.23436737 54.57756805 54.90829849 55.32949829 55.91777802 56.68697739 57.56705093 58.57424927 59.71194839 60.93694687 62.18377304 63.38897324 64.51542664 65.56402588 66.5194931 67.34909058 68.01603699 68.49163818 68.76745605 68.86745453 68.85694122 68.82974243 68.88372803 69.0965271 69.50121307 70.06201172 70.65838623 71.20638275 71.66550446 72.01550293 72.25637817 72.4083786 72.51200104 72.62460327 72.7831955 72.98879242 73.21810913 73.43570709 73.60614777 73.70614624 73.75089264 73.78729248 73.86428833 74.02069092 74.27303314 74.6034317 74.95506287 75.32066345 75.69179535 76.04179382 76.33792877 76.55352783 76.68016052 76.74416351 76.79728699 76.87328339 76.98565674 77.12765503 77.27227783}}
+ addUserKnob {13 boid_vel l "Boid velocity"}
+ boid_vel {{parent.NoiseCurveX.value} {parent.NoiseCurveY.value} {parent.NoiseCurveZ.value}}
+ addUserKnob {13 velocity_change}
+ addUserKnob {13 boid_rot l "Boid rotation"}
+ addUserKnob {22 Run T "#k = nuke.thisNode()\['inputframe']\n\nimport math  # we'll need this for the arc cosine function, and to convert radians to degrees\n\n'''\nvectorA = nuke.math.Vector2(50,100)\nvectorB = nuke.math.Vector2(150, 175)\n \n# We need both vectors to be 1-unit length so that the dot product between them\n# equals the cosine of the angle between them, so we normalize A and B\n \nvectorA.normalize()\nvectorB.normalize()\ndotProduct = vectorA.dot(vectorB)\nangle = math.degrees(math.acos(dotProduct)) # 'A' dot 'B' = cos(angle), so angle = acos('A' dot 'B')\nprint angle\n'''\n\ndef dot_prod(self, other):\n        return self.x*other.x + self.y*other.y + self.z*other.z\n\nn = nuke.toNode('boid')\n\nbip = n\['boid_init_pos']\nbp = n\['boid_pos']\nbv = n\['boid_vel']\n\nframe_start = n\['frame_start'].value()\nframe_end = n\['frame_end'].value()\n\nboid = nuke.math.Matrix3()\nboid.makeIdentity()\n\nprint boid\n\nboid_pos = nuke.math.Vector3(bip.value(0), bip.value(1), bip.value(2))\n\n\nboid_vel = nuke.math.Vector3(bv.value(0), bv.value(1), bv.value(2))\n\nprint boid_pos\n\nprint boid_vel\n\nbp.clearAnimated()\n\nbp.setAnimated()\n\n\nfor i in xrange( frame_start, frame_end, 1 ):\n\n\tboid_vel = nuke.math.Vector3(bv.valueAt(i, 0), bv.valueAt(i, 1), bv.valueAt(i, 2))\n\t\t\t\n\tboid_pos = boid_pos + boid_vel\n\t\n\ttX = boid_pos\[0]\n\t\n\tprint tX\n\t\n\t\n\tbp.setValueAt(boid_pos\[0], i, 0)\n\tbp.setValueAt(boid_pos\[1], i, 1)\n\tbp.setValueAt(boid_pos\[2], i, 2)" +STARTLINE}
+}
+ Input {
+  inputs 0
+  name Input1
+  xpos 39
+  ypos -76
+ }
+ Axis2 {
+  translate {{parent.boid_pos i} {parent.boid_pos i} {parent.boid_pos i}}
+  name Axis1
+  xpos 49
+  ypos -36
+ }
+set N1be436e0 [stack 0]
+ Output {
+  name Output1
+  xpos 49
+  ypos 64
+ }
+push $N1be436e0
+ Viewer {
+  frame 56
+  name Viewer1
+  xpos 39
+  ypos 30
+ }
+end_group
